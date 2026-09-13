@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="robots"
+    content="noindex,nofollow"
+  >
+
+  <title>
+    NDI Admin Dashboard
+  </title>
+
+
+  <!-- Google Font -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- Main website CSS -->
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
+
+
+  <!-- Admin-specific styling -->
+  <style>
+
+    body {
+      background: #fff4f9;
+    }
+
+    .admin {
+      padding: 50px 0;
+      min-height: calc(100vh - 100px);
+    }
+
+    .admin-card {
+      background: #ffffff;
+      border: 1px solid #eadde5;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 20px 60px rgba(68, 13, 57, 0.12);
+      margin-bottom: 20px;
+    }
+
+    .admin-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .admin-table th,
+    .admin-table td {
+      padding: 12px;
+      border-bottom: 1px solid #eeeeee;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .admin-table th {
+      color: #3b0a45;
+      font-weight: 800;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 99px;
+      background: #ffe0ed;
+      color: #e4006d;
+      font-weight: 800;
+      font-size: 11px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .login {
+      max-width: 520px;
+      margin: auto;
+    }
+
+    .error {
+      color: #8f123d;
+      font-weight: 600;
+    }
+
+    .success {
+      color: #15803d;
+      font-weight: 600;
+    }
+
+    .empty {
+      padding: 40px;
+      text-align: center;
+      color: #777;
+    }
+
+    @media (max-width: 700px) {
+
+      .admin {
+        padding: 25px 0;
+      }
+
+      .admin-card {
+        padding: 20px;
+        border-radius: 18px;
+      }
+
+      .admin-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .admin-table {
+        min-width: 800px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================================
+       HEADER
+       ========================================= -->
+
+  <header class="site-header">
+
+    <div class="container nav-wrap">
+
+
+      <!-- LOGO -->
+      <a
+        class="brand"
+        href="index.html"
+      >
+
+        <span class="brand-mark">
+          NDI
+        </span>
+
+        <span>
+
+          <strong>
+            Nurturing Daughters
+          </strong>
+
+          <small>
+            Initiative
+          </small>
+
+        </span>
+
+      </a>
+
+
+      <!-- BACK BUTTON -->
+      <a
+        class="btn btn-light"
+        href="index.html"
+      >
+        Back to website
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================================
+       ADMIN CONTENT
+       ========================================= -->
+
+  <main class="admin">
+
+    <div class="container">
+
+
+      <!-- =======================================
+           LOGIN CARD
+           ======================================= -->
+
+      <section
+        id="loginCard"
+        class="admin-card login"
+      >
+
+        <span class="eyebrow">
+          PRIVATE ADMIN
+        </span>
+
+
+        <h1>
+          NDI enquiries
+        </h1>
+
+
+        <p>
+          Sign in with an account enabled in Firebase
+          Authentication and marked as an admin in
+          Realtime Database.
+        </p>
+
+
+        <form id="loginForm">
+
+
+          <!-- EMAIL -->
+          <label>
+
+            Email
+
+            <input
+              type="email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="admin@example.com"
+            >
+
+          </label>
+
+
+          <!-- PASSWORD -->
+          <label>
+
+            Password
+
+            <input
+              type="password"
+              name="password"
+              required
+              autocomplete="current-password"
+              placeholder="Your password"
+            >
+
+          </label>
+
+
+          <!-- LOGIN BUTTON -->
+          <button
+            class="btn btn-primary full"
+            type="submit"
+          >
+            Sign in
+          </button>
+
+
+          <!-- LOGIN ERROR -->
+          <p
+            id="loginError"
+            class="error"
+            role="alert"
+          ></p>
+
+        </form>
+
+      </section>
+
+
+      <!-- =======================================
+           DASHBOARD
+           ======================================= -->
+
+      <section
+        id="dashboard"
+        class="hidden"
+      >
+
+
+        <!-- DASHBOARD HEADER -->
+        <div class="admin-card admin-head">
+
+          <div>
+
+            <span class="eyebrow">
+              DASHBOARD
+            </span>
+
+
+            <h1>
+              Website enquiries
+            </h1>
+
+
+            <p id="adminEmail"></p>
+
+          </div>
+
+
+          <!-- LOGOUT -->
+          <button
+            id="logout"
+            class="btn btn-light"
+            type="button"
+          >
+            Sign out
+          </button>
+
+        </div>
+
+
+        <!-- =====================================
+             CONTACT MESSAGES
+             ===================================== -->
+
+        <div class="admin-card">
+
+          <h2>
+            Contact messages
+          </h2>
+
+
+          <p>
+            Enquiries submitted through the NDI website.
+          </p>
+
+
+          <div style="overflow:auto">
+
+            <table class="admin-table">
+
+              <thead>
+
+                <tr>
+
+                  <th>
+                    Date
+                  </th>
+
+                  <th>
+                    Name
+                  </th>
+
+                  <th>
+                    Contact
+                  </th>
+
+                  <th>
+                    Organisation
+                  </th>
+
+                  <th>
+                    Interest
+                  </th>
+
+                  <th>
+                    Message
+                  </th>
+
+                </tr>
+
+              </thead>
+
+
+              <tbody id="messages">
+
+                <!-- Firebase messages appear here -->
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- =========================================
+       ADMIN JAVASCRIPT
+       ========================================= -->
+
+  <script
+    type="module"
+    src="admin.js"
+  ></script>
+
+
+</body>
+
+</html>
