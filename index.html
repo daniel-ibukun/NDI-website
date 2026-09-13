@@ -3,20 +3,14 @@
 <head>
   <meta charset="utf-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta
     name="description"
     content="Nurturing Daughters Initiative (NDI) — shaping the future of every girl child through nurture, education, empowerment and impact."
   >
 
-  <meta
-    name="theme-color"
-    content="#d90068"
-  >
+  <meta name="theme-color" content="#d90068">
 
   <meta
     property="og:title"
@@ -28,15 +22,10 @@
     content="Shaping the future of every girl child."
   >
 
-  <title>
-    NDI | Nurturing Daughters Initiative
-  </title>
+  <title>NDI | Nurturing Daughters Initiative</title>
 
   <!-- Google Fonts -->
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link
     rel="preconnect"
@@ -49,18 +38,1671 @@
     rel="stylesheet"
   >
 
-  <!-- Main stylesheet -->
-  <link
-    rel="stylesheet"
-    href="styles.css"
-  >
+  <!-- =====================================================
+       NDI WEBSITE STYLES
+       Everything is inside this HTML file
+       ===================================================== -->
+
+  <style>
+
+    :root {
+      --pink: #d90068;
+      --pink-dark: #b50057;
+      --pink-light: #fff0f7;
+      --pink-soft: #fff7fb;
+
+      --dark: #17131a;
+      --text: #403942;
+      --muted: #756c76;
+
+      --white: #ffffff;
+      --border: #eadfe6;
+
+      --shadow-sm: 0 8px 25px rgba(40, 20, 35, 0.07);
+      --shadow-md: 0 18px 50px rgba(40, 20, 35, 0.10);
+      --shadow-lg: 0 30px 80px rgba(40, 20, 35, 0.14);
+
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
+
+      --container: 1180px;
+    }
+
+    /* RESET */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    ::selection {
+      background: var(--pink);
+      color: var(--white);
+    }
+
+    /* CONTAINER */
+
+    .container {
+      width: min(
+        var(--container),
+        calc(100% - 40px)
+      );
+
+      margin-inline: auto;
+    }
+
+    /* TYPOGRAPHY */
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: var(--dark);
+      line-height: 1.15;
+    }
+
+    h1,
+    h2 {
+      font-family: "Playfair Display", serif;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 6vw, 5.7rem);
+      letter-spacing: -0.045em;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+
+      color: var(--pink);
+
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+    }
+
+    /* TOAST */
+
+    .toast {
+      position: fixed;
+      z-index: 9999;
+
+      top: 24px;
+      right: 24px;
+
+      max-width: 360px;
+
+      padding: 14px 18px;
+
+      color: white;
+      background: var(--dark);
+
+      border-radius: 12px;
+
+      box-shadow: var(--shadow-lg);
+
+      font-size: 0.95rem;
+      font-weight: 600;
+
+      opacity: 0;
+      transform: translateY(-20px);
+
+      pointer-events: none;
+
+      transition:
+        opacity .3s ease,
+        transform .3s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* HEADER */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(255,255,255,.92);
+
+      border-bottom: 1px solid rgba(234,223,230,.8);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav-wrap {
+      min-height: 82px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 30px;
+    }
+
+    /* BRAND */
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+
+      color: var(--dark);
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+
+      display: grid;
+      place-items: center;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--pink),
+          #ef4d99
+        );
+
+      border-radius: 15px;
+
+      font-size: .9rem;
+      font-weight: 800;
+
+      box-shadow:
+        0 8px 22px rgba(217,0,104,.22);
+    }
+
+    .brand strong {
+      display: block;
+
+      font-size: .95rem;
+      line-height: 1.2;
+    }
+
+    .brand small {
+      display: block;
+
+      margin-top: 2px;
+
+      color: var(--muted);
+
+      font-size: .75rem;
+      font-weight: 600;
+    }
+
+    /* NAVIGATION */
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+
+      gap: 30px;
+    }
+
+    .site-nav > a {
+      position: relative;
+
+      color: #4d454e;
+
+      font-size: .92rem;
+      font-weight: 700;
+
+      transition: color .2s ease;
+    }
+
+    .site-nav > a:not(.nav-cta)::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      bottom: -7px;
+
+      width: 0;
+      height: 2px;
+
+      background: var(--pink);
+
+      border-radius: 10px;
+
+      transition: width .25s ease;
+    }
+
+    .site-nav > a:not(.nav-cta):hover {
+      color: var(--pink);
+    }
+
+    .site-nav > a:not(.nav-cta):hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 11px 18px;
+
+      color: white !important;
+
+      background: var(--pink);
+
+      border-radius: 999px;
+
+      box-shadow:
+        0 8px 20px rgba(217,0,104,.2);
+
+      transition:
+        transform .2s ease,
+        background .2s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--pink-dark);
+
+      transform: translateY(-2px);
+    }
+
+    /* MOBILE MENU */
+
+    .menu-btn {
+      display: none;
+
+      width: 44px;
+      height: 44px;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      color: var(--dark);
+      background: white;
+
+      font-size: 1.35rem;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+
+      min-height: 720px;
+
+      padding: 90px 0 100px;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 85% 25%,
+          rgba(217,0,104,.08),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #fff,
+          #fff8fb
+        );
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+
+      display: grid;
+
+      grid-template-columns:
+        1fr .9fr;
+
+      align-items: center;
+
+      gap: 70px;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+    }
+
+    .hero-copy h1 {
+      margin-bottom: 26px;
+    }
+
+    .hero-copy h1 em {
+      color: var(--pink);
+      font-style: normal;
+    }
+
+    .hero-copy > p {
+      max-width: 620px;
+
+      margin-bottom: 34px;
+
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    /* BUTTONS */
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 14px;
+
+      margin-bottom: 34px;
+    }
+
+    .btn {
+      min-height: 52px;
+
+      padding: 13px 22px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 10px;
+
+      border: 0;
+      border-radius: 999px;
+
+      font-size: .92rem;
+      font-weight: 800;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--pink),
+          #ec2b87
+        );
+
+      box-shadow:
+        0 12px 30px rgba(217,0,104,.22);
+    }
+
+    .btn-primary:hover {
+      box-shadow:
+        0 18px 35px rgba(217,0,104,.28);
+    }
+
+    .btn-light {
+      color: var(--dark);
+
+      background: white;
+
+      border: 1px solid var(--border);
+
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-dark {
+      color: white;
+      background: var(--dark);
+    }
+
+    .btn.full {
+      width: 100%;
+    }
+
+    /* MINI PROOF */
+
+    .mini-proof {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .mini-proof > span {
+      width: 43px;
+      height: 43px;
+
+      display: grid;
+      place-items: center;
+
+      color: var(--pink);
+      background: var(--pink-light);
+
+      border-radius: 50%;
+
+      font-size: 1.2rem;
+    }
+
+    .mini-proof strong {
+      display: block;
+
+      color: var(--dark);
+
+      font-size: .92rem;
+    }
+
+    .mini-proof small {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: .78rem;
+    }
+
+    /* HERO IMAGE */
+
+    .hero-art {
+      position: relative;
+
+      min-height: 520px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-art img {
+      position: relative;
+      z-index: 2;
+
+      width: min(100%,540px);
+
+      max-height: 600px;
+
+      object-fit: contain;
+
+      filter:
+        drop-shadow(
+          0 30px 35px rgba(65,22,48,.14)
+        );
+
+      animation:
+        heroFloat 6s ease-in-out infinite;
+    }
+
+    .hero-ring {
+      position: absolute;
+      z-index: 1;
+
+      width: 430px;
+      height: 430px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          #ffd7e9 0%,
+          #ffeaf4 52%,
+          transparent 53%
+        );
+
+      box-shadow:
+        0 0 0 25px rgba(217,0,104,.035),
+        0 0 0 50px rgba(217,0,104,.025);
+    }
+
+    .hero-glow {
+      position: absolute;
+      z-index: -1;
+
+      border-radius: 50%;
+
+      filter: blur(5px);
+    }
+
+    .glow-one {
+      width: 250px;
+      height: 250px;
+
+      top: -100px;
+      left: -80px;
+
+      background: rgba(217,0,104,.07);
+    }
+
+    .glow-two {
+      width: 300px;
+      height: 300px;
+
+      right: -130px;
+      bottom: -130px;
+
+      background: rgba(245,174,208,.2);
+    }
+
+    @keyframes heroFloat {
+      0%,100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* IMPACT */
+
+    .impact-strip {
+      position: relative;
+      z-index: 5;
+
+      background: var(--dark);
+      color: white;
+    }
+
+    .impact-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+    }
+
+    .impact-grid > div {
+      min-height: 125px;
+
+      padding: 25px;
+
+      display: flex;
+
+      flex-direction: column;
+      justify-content: center;
+
+      border-right:
+        1px solid rgba(255,255,255,.1);
+    }
+
+    .impact-grid > div:last-child {
+      border-right: 0;
+    }
+
+    .impact-grid strong {
+      color: white;
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size: 1.8rem;
+    }
+
+    .impact-grid span {
+      color: rgba(255,255,255,.65);
+
+      font-size: .82rem;
+    }
+
+    /* SECTIONS */
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section.soft {
+      background: var(--pink-soft);
+    }
+
+    .section-heading {
+      max-width: 720px;
+
+      margin-bottom: 50px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 18px;
+    }
+
+    .section-heading p {
+      max-width: 620px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns:
+        .95fr 1.05fr;
+
+      align-items: center;
+
+      gap: 80px;
+    }
+
+    .section-image {
+      position: relative;
+    }
+
+    .section-image::before {
+      content: "";
+
+      position: absolute;
+      z-index: 0;
+
+      width: 80%;
+      height: 80%;
+
+      left: -25px;
+      bottom: -25px;
+
+      background: var(--pink-light);
+
+      border-radius: var(--radius-lg);
+    }
+
+    .section-image img {
+      position: relative;
+      z-index: 1;
+
+      width: 100%;
+
+      min-height: 450px;
+
+      object-fit: cover;
+
+      border-radius: var(--radius-lg);
+
+      box-shadow: var(--shadow-lg);
+    }
+
+    .section-copy h2 {
+      margin-bottom: 24px;
+    }
+
+    .section-copy p {
+      margin-bottom: 18px;
+    }
+
+    .quote {
+      margin: 28px 0;
+
+      padding: 22px 25px;
+
+      color: var(--pink);
+
+      background: var(--pink-light);
+
+      border-left:
+        4px solid var(--pink);
+
+      border-radius:
+        0 15px 15px 0;
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .text-link {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      color: var(--pink);
+
+      font-weight: 800;
+    }
+
+    /* PILLARS */
+
+    .card-grid {
+      display: grid;
+
+      gap: 20px;
+    }
+
+    .card-grid.four {
+      grid-template-columns:
+        repeat(4,1fr);
+    }
+
+    .pillar {
+      position: relative;
+
+      padding: 30px;
+
+      background: white;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: var(--radius-md);
+
+      box-shadow: var(--shadow-sm);
+
+      overflow: hidden;
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .pillar:hover {
+      transform: translateY(-7px);
+
+      box-shadow: var(--shadow-md);
+    }
+
+    .pillar::after {
+      content: "";
+
+      position: absolute;
+
+      width: 100px;
+      height: 100px;
+
+      right: -40px;
+      top: -40px;
+
+      border-radius: 50%;
+
+      background: var(--pink-light);
+    }
+
+    .pillar .icon {
+      position: relative;
+      z-index: 2;
+
+      width: 52px;
+      height: 52px;
+
+      display: grid;
+      place-items: center;
+
+      margin-bottom: 22px;
+
+      color: var(--pink);
+
+      background: var(--pink-light);
+
+      border-radius: 15px;
+
+      font-size: 1.5rem;
+    }
+
+    .pillar h3,
+    .pillar p {
+      position: relative;
+      z-index: 2;
+    }
+
+    .pillar h3 {
+      margin-bottom: 12px;
+    }
+
+    .pillar p {
+      font-size: .92rem;
+    }
+
+    /* PROGRAMMES */
+
+    .programme-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap: 22px;
+    }
+
+    .programme {
+      position: relative;
+
+      min-height: 350px;
+
+      padding: 35px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      background: white;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: var(--radius-md);
+
+      box-shadow: var(--shadow-sm);
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .programme:hover {
+      transform: translateY(-7px);
+
+      box-shadow: var(--shadow-md);
+    }
+
+    .programme > span {
+      display: inline-flex;
+
+      width: fit-content;
+
+      margin-bottom: 55px;
+
+      color: var(--pink);
+
+      font-size: .82rem;
+      font-weight: 900;
+
+      letter-spacing: .1em;
+    }
+
+    .programme h3 {
+      margin-bottom: 15px;
+    }
+
+    .programme p {
+      font-size: .94rem;
+    }
+
+    .programme a {
+      margin-top: auto;
+
+      padding-top: 25px;
+
+      color: var(--pink);
+
+      font-size: .88rem;
+      font-weight: 800;
+    }
+
+    /* MISSION */
+
+    .mission-section {
+      background:
+        linear-gradient(
+          135deg,
+          #fff0f7,
+          #fff8fb
+        );
+    }
+
+    .mission {
+      display: grid;
+
+      grid-template-columns:
+        1fr 250px;
+
+      align-items: center;
+
+      gap: 70px;
+    }
+
+    .mission h2 {
+      max-width: 900px;
+
+      font-size:
+        clamp(2rem,4vw,3.3rem);
+    }
+
+    .mission-badge {
+      width: 220px;
+      height: 220px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      color: white;
+
+      background: var(--pink);
+
+      border-radius: 50%;
+
+      box-shadow:
+        0 20px 50px rgba(217,0,104,.25),
+        0 0 0 15px rgba(217,0,104,.06);
+    }
+
+    .mission-badge strong {
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size: 2.2rem;
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+
+      grid-template-columns:
+        .8fr 1.2fr;
+
+      gap: 80px;
+
+      align-items: start;
+    }
+
+    .contact-copy h2 {
+      margin-bottom: 20px;
+    }
+
+    .contact-copy > p {
+      margin-bottom: 30px;
+    }
+
+    .contact-details {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 13px;
+    }
+
+    .contact-details a,
+    .contact-details span {
+      color: var(--text);
+
+      font-weight: 600;
+    }
+
+    .contact-details a:hover {
+      color: var(--pink);
+    }
+
+    /* FORM */
+
+    .contact-form {
+      padding: 35px;
+
+      background: white;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: var(--radius-lg);
+
+      box-shadow: var(--shadow-md);
+    }
+
+    .form-row {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2,1fr);
+
+      gap: 18px;
+    }
+
+    .contact-form label {
+      display: block;
+
+      margin-bottom: 20px;
+
+      color: var(--dark);
+
+      font-size: .84rem;
+      font-weight: 800;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea,
+    .newsletter input {
+      width: 100%;
+
+      margin-top: 8px;
+
+      padding: 14px 16px;
+
+      color: var(--dark);
+
+      background: white;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 12px;
+
+      outline: none;
+
+      transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .contact-form input,
+    .contact-form select {
+      min-height: 50px;
+    }
+
+    .contact-form textarea {
+      min-height: 130px;
+
+      resize: vertical;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus,
+    .newsletter input:focus {
+      border-color: var(--pink);
+
+      box-shadow:
+        0 0 0 4px
+        rgba(217,0,104,.08);
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #aaa1a9;
+    }
+
+    .form-note {
+      margin-top: 15px;
+
+      color: #918891;
+
+      font-size: .76rem;
+
+      text-align: center;
+    }
+
+    .hp {
+      position: absolute !important;
+
+      width: 1px !important;
+      height: 1px !important;
+
+      opacity: 0 !important;
+
+      pointer-events: none !important;
+    }
+
+    /* NEWSLETTER */
+
+    .newsletter {
+      padding: 80px 0;
+
+      color: white;
+
+      background: var(--dark);
+    }
+
+    .newsletter .eyebrow {
+      color: #ff78b5;
+    }
+
+    .newsletter-inner {
+      display: grid;
+
+      grid-template-columns:
+        1fr .8fr;
+
+      align-items: center;
+
+      gap: 60px;
+    }
+
+    .newsletter h2 {
+      margin-bottom: 15px;
+
+      color: white;
+    }
+
+    .newsletter p {
+      color:
+        rgba(255,255,255,.62);
+    }
+
+    .newsletter form {
+      display: flex;
+
+      gap: 10px;
+    }
+
+    .newsletter input {
+      margin: 0;
+
+      color: white;
+
+      background:
+        rgba(255,255,255,.08);
+
+      border-color:
+        rgba(255,255,255,.15);
+    }
+
+    .newsletter input::placeholder {
+      color:
+        rgba(255,255,255,.45);
+    }
+
+    /* FOOTER */
+
+    footer {
+      color:
+        rgba(255,255,255,.7);
+
+      background: #100d12;
+    }
+
+    .footer-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.6fr 1fr 1.2fr .8fr;
+
+      gap: 50px;
+
+      padding: 70px 0 55px;
+    }
+
+    .footer-brand {
+      margin-bottom: 18px;
+    }
+
+    footer .brand strong {
+      color: white;
+    }
+
+    footer .brand small {
+      color:
+        rgba(255,255,255,.5);
+    }
+
+    footer p {
+      max-width: 330px;
+
+      color:
+        rgba(255,255,255,.55);
+    }
+
+    .footer-grid h4 {
+      margin-bottom: 18px;
+
+      color: white;
+
+      font-size: .95rem;
+    }
+
+    .footer-grid > div:not(:first-child) {
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: flex-start;
+    }
+
+    .footer-grid a {
+      margin-bottom: 9px;
+
+      color:
+        rgba(255,255,255,.58);
+
+      font-size: .86rem;
+
+      transition: color .2s ease;
+    }
+
+    .footer-grid a:hover {
+      color: #ff70b0;
+    }
+
+    .footer-bottom {
+      min-height: 75px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      border-top:
+        1px solid rgba(255,255,255,.09);
+
+      color:
+        rgba(255,255,255,.42);
+
+      font-size: .76rem;
+    }
+
+    /* TABLET */
+
+    @media (max-width:1000px) {
+
+      .site-nav {
+        gap: 18px;
+      }
+
+      .hero-grid {
+        grid-template-columns:
+          1fr .8fr;
+
+        gap: 40px;
+      }
+
+      .hero-art {
+        min-height: 430px;
+      }
+
+      .hero-ring {
+        width: 350px;
+        height: 350px;
+      }
+
+      .card-grid.four {
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+      .about-grid {
+        gap: 45px;
+      }
+
+      .programme-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .programme {
+        min-height: 280px;
+      }
+
+      .contact-grid {
+        gap: 45px;
+      }
+
+      .footer-grid {
+        grid-template-columns:
+          1.4fr 1fr 1fr;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width:760px) {
+
+      .container {
+        width:
+          min(
+            var(--container),
+            calc(100% - 28px)
+          );
+      }
+
+      .nav-wrap {
+        min-height: 72px;
+      }
+
+      .menu-btn {
+        display: grid;
+
+        place-items: center;
+      }
+
+      .site-nav {
+        position: absolute;
+
+        top: 72px;
+
+        left: 14px;
+        right: 14px;
+
+        padding: 16px;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 5px;
+
+        background:
+          rgba(255,255,255,.98);
+
+        border:
+          1px solid var(--border);
+
+        border-radius: 18px;
+
+        box-shadow: var(--shadow-lg);
+      }
+
+      .site-nav.open {
+        display: flex;
+      }
+
+      .site-nav > a {
+        padding: 12px 14px;
+      }
+
+      .site-nav > a:not(.nav-cta)::after {
+        display: none;
+      }
+
+      .nav-cta {
+        margin-top: 6px;
+
+        text-align: center;
+      }
+
+      .hero {
+        min-height: auto;
+
+        padding: 65px 0 70px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+      }
+
+      .hero-copy h1 {
+        font-size:
+          clamp(2.8rem,13vw,4.3rem);
+      }
+
+      .hero-copy > p {
+        font-size: 1rem;
+      }
+
+      .hero-art {
+        min-height: 330px;
+      }
+
+      .hero-art img {
+        max-height: 380px;
+      }
+
+      .hero-ring {
+        width: 280px;
+        height: 280px;
+      }
+
+      .impact-grid {
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+      .impact-grid > div {
+        min-height: 110px;
+
+        padding: 20px;
+      }
+
+      .impact-grid > div:nth-child(2) {
+        border-right: 0;
+      }
+
+      .impact-grid > div:nth-child(-n+2) {
+        border-bottom:
+          1px solid rgba(255,255,255,.1);
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+      }
+
+      .section-image img {
+        min-height: 320px;
+      }
+
+      .card-grid.four {
+        grid-template-columns: 1fr;
+      }
+
+      .mission {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+      }
+
+      .mission-badge {
+        width: 180px;
+        height: 180px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form {
+        padding: 24px 18px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+      }
+
+      .newsletter {
+        padding: 65px 0;
+      }
+
+      .newsletter-inner {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+      }
+
+      .newsletter form {
+        flex-direction: column;
+      }
+
+      .newsletter .btn {
+        width: 100%;
+      }
+
+      .footer-grid {
+        grid-template-columns:
+          1fr 1fr;
+
+        gap: 40px 25px;
+
+        padding: 55px 0 40px;
+      }
+
+      .footer-grid > div:first-child {
+        grid-column: 1 / -1;
+      }
+
+      .footer-bottom {
+        padding: 22px 0;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+    }
+
+    /* SMALL PHONES */
+
+    @media (max-width:480px) {
+
+      h2 {
+        font-size: 2.15rem;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+
+        border-radius: 13px;
+      }
+
+      .brand strong {
+        font-size: .82rem;
+      }
+
+      .brand small {
+        font-size: .68rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .mini-proof {
+        align-items: flex-start;
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .impact-grid > div,
+      .impact-grid > div:nth-child(2) {
+        border-right: 0;
+
+        border-bottom:
+          1px solid rgba(255,255,255,.1);
+      }
+
+      .impact-grid > div:last-child {
+        border-bottom: 0;
+      }
+
+      .programme {
+        padding: 27px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid > div:first-child {
+        grid-column: auto;
+      }
+
+      .toast {
+        left: 14px;
+        right: 14px;
+
+        top: 14px;
+
+        max-width: none;
+      }
+    }
+
+    /* ACCESSIBILITY */
+
+    :focus-visible {
+      outline:
+        3px solid rgba(217,0,104,.3);
+
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration:
+          .01ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        transition-duration:
+          .01ms !important;
+      }
+    }
+
+  </style>
+
 </head>
 
 <body>
 
-  <!-- =========================================
-       TOAST NOTIFICATION
-       ========================================= -->
+  <!-- TOAST -->
 
   <div
     id="toast"
@@ -70,9 +1712,7 @@
   ></div>
 
 
-  <!-- =========================================
-       HEADER / NAVIGATION
-       ========================================= -->
+  <!-- HEADER -->
 
   <header
     class="site-header"
@@ -81,7 +1721,6 @@
 
     <div class="container nav-wrap">
 
-      <!-- LOGO -->
       <a
         class="brand"
         href="#home"
@@ -93,6 +1732,7 @@
         </span>
 
         <span>
+
           <strong>
             Nurturing Daughters
           </strong>
@@ -100,12 +1740,12 @@
           <small>
             Initiative
           </small>
+
         </span>
 
       </a>
 
 
-      <!-- MOBILE MENU BUTTON -->
       <button
         class="menu-btn"
         id="menuBtn"
@@ -117,7 +1757,6 @@
       </button>
 
 
-      <!-- NAVIGATION -->
       <nav
         id="siteNav"
         class="site-nav"
@@ -153,16 +1792,11 @@
   </header>
 
 
-  <!-- =========================================
-       MAIN CONTENT
-       ========================================= -->
+  <!-- MAIN -->
 
   <main>
 
-
-    <!-- =======================================
-         HERO
-         ======================================= -->
+    <!-- HERO -->
 
     <section
       class="hero"
@@ -170,25 +1804,20 @@
     >
 
       <div class="hero-glow glow-one"></div>
-
       <div class="hero-glow glow-two"></div>
-
 
       <div class="container hero-grid">
 
-        <!-- HERO TEXT -->
         <div class="hero-copy">
 
           <span class="eyebrow">
             NURTURING DAUGHTERS INITIATIVE
           </span>
 
-
           <h1>
             Shaping the future of
             <em>every girl child.</em>
           </h1>
-
 
           <p>
             We nurture, educate, empower and protect girls
@@ -196,8 +1825,6 @@
             purpose-driven women who transform their communities.
           </p>
 
-
-          <!-- HERO BUTTONS -->
           <div class="hero-actions">
 
             <a
@@ -208,7 +1835,6 @@
               <span>→</span>
             </a>
 
-
             <a
               class="btn btn-light"
               href="#contact"
@@ -218,8 +1844,6 @@
 
           </div>
 
-
-          <!-- SMALL MESSAGE -->
           <div class="mini-proof">
 
             <span>
@@ -243,7 +1867,6 @@
         </div>
 
 
-        <!-- HERO IMAGE -->
         <div class="hero-art">
 
           <div class="hero-ring"></div>
@@ -261,9 +1884,7 @@
     </section>
 
 
-    <!-- =======================================
-         IMPACT STRIP
-         ======================================= -->
+    <!-- IMPACT -->
 
     <section
       class="impact-strip"
@@ -273,46 +1894,23 @@
       <div class="container impact-grid">
 
         <div>
-          <strong>
-            4
-          </strong>
-
-          <span>
-            Core pillars
-          </span>
+          <strong>4</strong>
+          <span>Core pillars</span>
         </div>
 
-
         <div>
-          <strong>
-            Girls
-          </strong>
-
-          <span>
-            At the centre of our work
-          </span>
+          <strong>Girls</strong>
+          <span>At the centre of our work</span>
         </div>
 
-
         <div>
-          <strong>
-            Schools
-          </strong>
-
-          <span>
-            Our outreach partners
-          </span>
+          <strong>Schools</strong>
+          <span>Our outreach partners</span>
         </div>
 
-
         <div>
-          <strong>
-            Future
-          </strong>
-
-          <span>
-            Our shared responsibility
-          </span>
+          <strong>Future</strong>
+          <span>Our shared responsibility</span>
         </div>
 
       </div>
@@ -320,9 +1918,7 @@
     </section>
 
 
-    <!-- =======================================
-         ABOUT
-         ======================================= -->
+    <!-- ABOUT -->
 
     <section
       class="section"
@@ -331,7 +1927,6 @@
 
       <div class="container about-grid">
 
-        <!-- IMAGE -->
         <div class="section-image">
 
           <img
@@ -342,26 +1937,21 @@
 
         </div>
 
-
-        <!-- TEXT -->
         <div class="section-copy">
 
           <span class="eyebrow">
             WHO WE ARE
           </span>
 
-
           <h2>
             Raising girls who know their worth.
           </h2>
-
 
           <p>
             NDI exists to give girls practical tools,
             safe spaces and positive guidance at the
             moments that can shape the rest of their lives.
           </p>
-
 
           <p>
             Through school outreach, workshops and mentorship,
@@ -370,11 +1960,9 @@
             their purpose.
           </p>
 
-
           <div class="quote">
             “A girl who knows her worth, protects her future.”
           </div>
-
 
           <a
             class="text-link"
@@ -390,9 +1978,7 @@
     </section>
 
 
-    <!-- =======================================
-         OUR FOCUS
-         ======================================= -->
+    <!-- FOCUS -->
 
     <section
       class="section soft"
@@ -401,18 +1987,15 @@
 
       <div class="container">
 
-        <!-- HEADING -->
         <div class="section-heading">
 
           <span class="eyebrow">
             OUR FOCUS
           </span>
 
-
           <h2>
             Four pillars. One powerful future.
           </h2>
-
 
           <p>
             Every programme is designed to move a girl
@@ -422,11 +2005,8 @@
         </div>
 
 
-        <!-- PILLARS -->
         <div class="card-grid four">
 
-
-          <!-- NURTURE -->
           <article class="pillar">
 
             <div class="icon">
@@ -445,7 +2025,6 @@
           </article>
 
 
-          <!-- EDUCATE -->
           <article class="pillar">
 
             <div class="icon">
@@ -464,7 +2043,6 @@
           </article>
 
 
-          <!-- EMPOWER -->
           <article class="pillar">
 
             <div class="icon">
@@ -483,7 +2061,6 @@
           </article>
 
 
-          <!-- IMPACT -->
           <article class="pillar">
 
             <div class="icon">
@@ -508,9 +2085,7 @@
     </section>
 
 
-    <!-- =======================================
-         PROGRAMMES
-         ======================================= -->
+    <!-- PROGRAMMES -->
 
     <section
       class="section"
@@ -525,7 +2100,6 @@
             PROGRAMMES
           </span>
 
-
           <h2>
             Practical support for real-life challenges.
           </h2>
@@ -535,8 +2109,6 @@
 
         <div class="programme-grid">
 
-
-          <!-- PROGRAMME 1 -->
           <article class="programme">
 
             <span>
@@ -560,7 +2132,6 @@
           </article>
 
 
-          <!-- PROGRAMME 2 -->
           <article class="programme">
 
             <span>
@@ -584,7 +2155,6 @@
           </article>
 
 
-          <!-- PROGRAMME 3 -->
           <article class="programme">
 
             <span>
@@ -613,13 +2183,9 @@
     </section>
 
 
-    <!-- =======================================
-         MISSION
-         ======================================= -->
+    <!-- MISSION -->
 
-    <section
-      class="section mission-section"
-    >
+    <section class="section mission-section">
 
       <div class="container mission">
 
@@ -629,7 +2195,6 @@
             OUR MISSION
           </span>
 
-
           <h2>
             To nurture, guide and protect girls from
             negative influences while empowering them
@@ -638,7 +2203,6 @@
           </h2>
 
         </div>
-
 
         <div class="mission-badge">
 
@@ -657,31 +2221,25 @@
     </section>
 
 
-    <!-- =======================================
-         CONTACT
-         ======================================= -->
+    <!-- CONTACT -->
 
     <section
-      class="section contact-section"
+      class="section"
       id="contact"
     >
 
       <div class="container contact-grid">
 
-
-        <!-- CONTACT INFORMATION -->
         <div class="contact-copy">
 
           <span class="eyebrow">
             LET’S WORK TOGETHER
           </span>
 
-
           <h2>
             Bring NDI to your school,
             community or organisation.
           </h2>
-
 
           <p>
             Tell us what you need. Your message will be
@@ -689,18 +2247,15 @@
             the NDI team can follow up.
           </p>
 
-
           <div class="contact-details">
 
             <a href="tel:+2349070547556">
               ☎ +234 907 054 7556
             </a>
 
-
             <a href="mailto:nurturingdaughtersinitiative@gmail.com">
               ✉ nurturingdaughtersinitiative@gmail.com
             </a>
-
 
             <span>
               ♥ @nurturingdaughtersinitiative
@@ -711,14 +2266,12 @@
         </div>
 
 
-        <!-- CONTACT FORM -->
         <form
           id="contactForm"
           class="contact-form"
           novalidate
         >
 
-          <!-- HONEYPOT ANTI-SPAM FIELD -->
           <input
             class="hp"
             name="website"
@@ -728,7 +2281,6 @@
           >
 
 
-          <!-- NAME + EMAIL -->
           <div class="form-row">
 
             <label>
@@ -742,7 +2294,6 @@
               >
 
             </label>
-
 
             <label>
               Email
@@ -760,7 +2311,6 @@
           </div>
 
 
-          <!-- PHONE + ORGANISATION -->
           <div class="form-row">
 
             <label>
@@ -773,7 +2323,6 @@
               >
 
             </label>
-
 
             <label>
               Organisation / School
@@ -789,7 +2338,6 @@
           </div>
 
 
-          <!-- INTEREST -->
           <label>
 
             How can we help?
@@ -832,7 +2380,6 @@
           </label>
 
 
-          <!-- MESSAGE -->
           <label>
 
             Message
@@ -848,7 +2395,6 @@
           </label>
 
 
-          <!-- SUBMIT -->
           <button
             class="btn btn-primary full"
             type="submit"
@@ -876,14 +2422,11 @@
     </section>
 
 
-    <!-- =======================================
-         NEWSLETTER
-         ======================================= -->
+    <!-- NEWSLETTER -->
 
     <section class="newsletter">
 
       <div class="container newsletter-inner">
-
 
         <div>
 
@@ -891,11 +2434,9 @@
             STAY CONNECTED
           </span>
 
-
           <h2>
             Join the NDI community.
           </h2>
-
 
           <p>
             Receive occasional updates about outreach,
@@ -905,9 +2446,7 @@
         </div>
 
 
-        <form
-          id="newsletterForm"
-        >
+        <form id="newsletterForm">
 
           <input
             type="email"
@@ -915,7 +2454,6 @@
             required
             placeholder="Your email address"
           >
-
 
           <button
             class="btn btn-dark"
@@ -933,16 +2471,12 @@
   </main>
 
 
-  <!-- =========================================
-       FOOTER
-       ========================================= -->
+  <!-- FOOTER -->
 
   <footer>
 
     <div class="container footer-grid">
 
-
-      <!-- FOOTER BRAND -->
       <div>
 
         <div class="brand footer-brand">
@@ -965,7 +2499,6 @@
 
         </div>
 
-
         <p>
           Shaping the future of every girl child.
         </p>
@@ -973,7 +2506,6 @@
       </div>
 
 
-      <!-- EXPLORE -->
       <div>
 
         <h4>
@@ -995,7 +2527,6 @@
       </div>
 
 
-      <!-- CONTACT -->
       <div>
 
         <h4>
@@ -1013,7 +2544,6 @@
       </div>
 
 
-      <!-- ADMIN -->
       <div>
 
         <h4>
@@ -1029,7 +2559,6 @@
     </div>
 
 
-    <!-- FOOTER BOTTOM -->
     <div class="footer-bottom container">
 
       <span>
@@ -1048,9 +2577,7 @@
   </footer>
 
 
-  <!-- =========================================
-       JAVASCRIPT
-       ========================================= -->
+  <!-- YOUR FIREBASE / WEBSITE JAVASCRIPT -->
 
   <script
     type="module"
